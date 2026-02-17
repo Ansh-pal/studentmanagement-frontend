@@ -27,7 +27,7 @@ export const environment = {
 // Production environment configuration
 export const environment = {
   production: true,
-  apiUrl: 'https://studentrecc-hfekdjescncbeec.centralindia-01.azurewebsites.net/api/students'
+  apiUrl: 'https://studentrecc-hfekdjescncbeecg.centralindia-01.azurewebsites.net/api/students'
 };
 ```
 
@@ -140,7 +140,7 @@ API URL used: http://localhost:8080/api/students
 ### Production (`ng build --configuration production`)
 ```
 Angular loads: environment.ts
-API URL used: https://studentrecc-hfekdjescncbeec.centralindia-01.azurewebsites.net/api/students
+API URL used: https://studentrecc-hfekdjescncbeecg.centralindia-01.azurewebsites.net/api/students
 ```
 
 ---
@@ -174,7 +174,7 @@ Status: (failed) net::ERR_CONNECTION_REFUSED
 
 **After:**
 ```
-Request URL: https://studentrecc-hfekdjescncbeec.centralindia-01.azurewebsites.net/api/students
+Request URL: https://studentrecc-hfekdjescncbeecg.centralindia-01.azurewebsites.net/api/students
 Status: 200 OK
 ```
 

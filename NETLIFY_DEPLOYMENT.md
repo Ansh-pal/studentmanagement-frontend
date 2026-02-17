@@ -16,7 +16,7 @@ export const environment = {
 ```typescript
 export const environment = {
   production: true,
-  apiUrl: 'https://studentrecc-hfekdjescncbeec.centralindia-01.azurewebsites.net/api/students'
+  apiUrl: 'https://studentrecc-hfekdjescncbeecg.centralindia-01.azurewebsites.net/api/students'
 };
 ```
 
@@ -98,7 +98,7 @@ netlify deploy --prod --dir=dist/studentmanagement-frontend/browser
 4. Test the app (view students, add student, etc.)
 5. Verify requests go to:
    ```
-   https://studentrecc-hfekdjescncbeec.centralindia-01.azurewebsites.net/api/students
+   https://studentrecc-hfekdjescncbeecg.centralindia-01.azurewebsites.net/api/students
    ```
 
 ---
@@ -245,7 +245,7 @@ netlify deploy --prod --dir=dist/studentmanagement-frontend/browser
 
 ### After Fix:
 ```
-✅ https://studentrecc-hfekdjescncbeec.centralindia-01.azurewebsites.net/api/students
+✅ https://studentrecc-hfekdjescncbeecg.centralindia-01.azurewebsites.net/api/students
 ✅ 200 OK
 ```
 
