@@ -1,0 +1,50 @@
+<div class="student-list-container">
+  <div class="header">
+    <h1>Student Management System</h1>
+    <button class="btn btn-primary" (click)="addNewStudent()">
+      Add New Student
+    </button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Loading students...
+  </div>
+
+  <div *ngIf="!loading && students.length === 0 && !errorMessage" class="no-data">
+    No students found. Click "Add New Student" to add one.
+  </div>
+
+  <table *ngIf="!loading && students.length > 0" class="students-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Roll Number</th>
+        <th>Course</th>
+        <th>Marks</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.rollNo }}</td>
+        <td>{{ student.course }}</td>
+        <td>{{ student.marks }}</td>
+        <td>
+          <button class="btn btn-edit" (click)="editStudent(student.id)">
+            Edit
+          </button>
+          <button class="btn btn-delete" (click)="deleteStudent(student.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

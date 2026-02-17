@@ -1,0 +1,101 @@
+<div class="form-container">
+  <div class="form-header">
+    <h2>Add New Student</h2>
+  </div>
+
+  <div *ngIf="errorMessage" class="message error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="message success-message">
+    {{ successMessage }}
+  </div>
+
+  <form #studentForm="ngForm" (ngSubmit)="onSubmit()" class="student-form">
+    <div class="form-group">
+      <label for="name">Name <span class="required">*</span></label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="student.name"
+        #name="ngModel"
+        required
+        class="form-control"
+        placeholder="Enter student name"
+      />
+      <div *ngIf="submitted && name.invalid" class="validation-error">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="rollNo">Roll Number <span class="required">*</span></label>
+      <input
+        type="text"
+        id="rollNo"
+        name="rollNo"
+        [(ngModel)]="student.rollNo"
+        #rollNo="ngModel"
+        required
+        class="form-control"
+        placeholder="Enter roll number"
+      />
+      <div *ngIf="submitted && rollNo.invalid" class="validation-error">
+        Roll Number is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="course">Course</label>
+      <input
+        type="text"
+        id="course"
+        name="course"
+        [(ngModel)]="student.course"
+        class="form-control"
+        placeholder="Enter course name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="marks">Marks</label>
+      <input
+        type="number"
+        id="marks"
+        name="marks"
+        [(ngModel)]="student.marks"
+        class="form-control"
+        placeholder="Enter marks"
+        min="0"
+        max="100"
+      />
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="loading"
+      >
+        {{ loading ? 'Submitting...' : 'Add Student' }}
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="cancel()"
+        [disabled]="loading"
+      >
+        Cancel
+      </button>
+      <button
+        type="button"
+        class="btn btn-reset"
+        (click)="resetForm()"
+        [disabled]="loading"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

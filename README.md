@@ -1,59 +1,150 @@
-# StudentmanagementFrontend
+﻿# Student Management System - Angular Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+A complete Angular frontend application for managing student records with full CRUD (Create, Read, Update, Delete) operations.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- View all students in a responsive table
+- Add new students with form validation
+- Edit existing student records
+- Delete students with confirmation
+- Clean and responsive UI
+- Error handling and user feedback
+- Angular 21 with standalone components
+- TypeScript, HTML, and CSS
+- Template-driven forms with ngModel
+- HttpClient for API communication
+- Angular Router for navigation
 
-```bash
-ng serve
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── navbar/              # Navigation bar component
+│   │   ├── student-list/        # Display all students
+│   │   ├── student-form/        # Add new student
+│   │   └── student-edit/        # Edit existing student
+│   ├── models/
+│   │   └── student.model.ts     # Student interface/model
+│   ├── services/
+│   │   └── student.service.ts   # API service for CRUD operations
+│   ├── app.ts                   # Root component
+│   ├── app.config.ts            # Application configuration
+│   └── app.routes.ts            # Route configuration
+└── styles.css                   # Global styles
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Student Model
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```typescript
+interface Student {
+  id?: number;
+  name: string;        // Required
+  rollNo: string;      // Required
+  course: string;
+  marks: number;
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Routes
 
+| Route        | Component          | Description           |
+|--------------|--------------------|-----------------------|
+| /            | StudentListComponent| View all students    |
+| /add         | StudentFormComponent| Add new student      |
+| /edit/:id    | StudentEditComponent| Edit student by ID   |
+
+## Prerequisites
+
+- Node.js (v18 or higher)
+- npm (v10 or higher)
+- Angular CLI (v21)
+
+## Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Configure API URL in src/app/services/student.service.ts:
+   ```typescript
+   private apiUrl = 'http://localhost:8080/api/students';
+   ```
+
+## Running the Application
+
+Start the development server:
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Open your browser: http://localhost:4200
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Building for Production
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+## API Endpoints
 
-For end-to-end (e2e) testing, run:
+| Method | Endpoint                    | Description           |
+|--------|-----------------------------|-----------------------|
+| GET    | /api/students              | Get all students      |
+| GET    | /api/students/:id          | Get student by ID     |
+| POST   | /api/students              | Create new student    |
+| PUT    | /api/students/:id          | Update student        |
+| DELETE | /api/students/:id          | Delete student        |
 
-```bash
-ng e2e
-```
+## CORS Configuration
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Ensure your backend API has CORS enabled for http://localhost:4200
 
-## Additional Resources
+## Form Validation
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Name: Required field
+- Roll Number: Required field
+- Course: Optional field
+- Marks: Optional, accepts numbers 0-100
+
+## Features in Detail
+
+### Student List Page (/)
+- Displays all students in a table
+- Edit and Delete buttons for each student
+- Add New Student button
+- Loading and error states
+
+### Add Student Page (/add)
+- Form with validation
+- Success/error messages
+- Auto-redirect after submission
+- Cancel and Reset buttons
+
+### Edit Student Page (/edit/:id)
+- Pre-populated form
+- Update existing record
+- Cancel button
+- Success/error messages
+
+### Navigation
+- Sticky navbar
+- Active route highlighting
+- Responsive design
+
+## Technologies Used
+
+- Angular 21
+- TypeScript 5.9
+- RxJS 7.8
+- Angular Router
+- HttpClient
+- FormsModule
+- CSS3
+
+## Note
+
+Make sure your backend REST API is running before starting this application.
